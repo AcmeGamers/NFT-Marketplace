@@ -5,19 +5,19 @@ module.exports = {
       port: 7545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
+  },
 
-    contracts_directory: "./src/contracts",
-    contracts_build_directory: "./src/abis",
+  contracts_directory: "./src/contracts",
+  contracts_build_directory: "./src/abis",
 
-    // Configure your compilers
-    compilers: {
-      solc: {
-        version: "^0.8.7",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
+  // Configuring the compilers
+  compilers: {
+    solc: {
+      version: "^0.8.7",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200,
         },
       },
     },
