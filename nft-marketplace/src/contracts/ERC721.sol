@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 contract ERC721 {
 
     // Transfering Function
-    event Transfer(address to, address from, uint256 _tokenId);
+    event Transfer(address indexed to, address indexed from, uint256 indexed _tokenId);
 
     // By default, uint = uint256, although we can always specify the amount of int.
     // Using token ID to find the Owner
