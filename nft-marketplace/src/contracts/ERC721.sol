@@ -37,4 +37,14 @@ contract ERC721 {
         // Using the event and that will take emit.
         emit Transfer(address(0), to, _tokenId);
     }
+
+    function balanceOf(address _owner) external view returns (uint256){
+        require(_owner != address(0), "ERC721: The Owner Address is 0x0.");
+        return _ownedTokens[_owner];
+    }
+
+    function ownerOf(uint _owner) external view returns (address) {        
+        address owner = _tokenOwner[_owner];
+        return owner;
+    }
 }
