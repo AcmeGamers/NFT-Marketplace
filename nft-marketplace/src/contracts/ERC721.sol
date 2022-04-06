@@ -39,12 +39,13 @@ contract ERC721 {
     }
 
     function balanceOf(address _owner) external view returns (uint256){
-        require(_owner != address(0), "ERC721: The Owner Address is 0x0.");
+        require(_owner != address(0), "ERC721: The Owner Address is 0x0. Owner does not exist.");
         return _ownedTokens[_owner];
     }
 
     function ownerOf(uint _owner) external view returns (address) {        
         address owner = _tokenOwner[_owner];
+        require(owner != address(0), "ERC721: The Owner Address is 0x0. Owner does not exist.");
         return owner;
     }
 }
