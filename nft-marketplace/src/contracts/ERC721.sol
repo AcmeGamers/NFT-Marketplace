@@ -16,7 +16,7 @@ contract ERC721 {
     // Minting is the process of converting a digital asset into an NFT.
     
     // How it will work?
-    // a function that will get owner adress and their id
+    // a function that will get owner adress and their id, we will call that mint
     // address of the asset will belong to owner.
     // and there will be an increase in the amount of tokens.
     // Have to make sure that the mint address is not 0x0
