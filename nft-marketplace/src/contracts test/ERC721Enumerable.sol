@@ -12,6 +12,9 @@ contract ERC721Enumerable /* is ERC721 */ {
         return _allTokens.length;
     }
 
+    function _updateTokens(uint256 token) internal {
+        _allTokens.push(token);
+    }
 
     /// @notice Enumerate valid NFTs
     /// @dev Throws if `_index` >= `totalSupply()`.

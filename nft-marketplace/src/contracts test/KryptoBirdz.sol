@@ -17,6 +17,7 @@ contract KryptoBirdz is Connector {
         kryptoBirdz.push(_kryptoBird);
         uint256 _id = kryptoBirdz.length - 1;
         _mint(msg.sender, _id);
+        _updateTokens(_id);
 
         _kryptoBirdExists[_kryptoBird] =  true;
     }

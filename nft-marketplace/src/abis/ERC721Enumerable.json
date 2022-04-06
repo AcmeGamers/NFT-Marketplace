@@ -15,16 +15,16 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"totalSupply()\":{\"returns\":{\"_0\":\"A count of valid NFTs tracked by this contract, where each one of  them has an assigned and queryable owner not equal to the zero address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"totalSupply()\":{\"notice\":\"Count NFTs tracked by this contract\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ERC721Enumerable.sol\":\"ERC721Enumerable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ERC721Enumerable.sol\":{\"keccak256\":\"0x16f26e17e73327213bc45a5843759a23f3e79f93089175e9360187be6300b8ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8e0123d46e5e55ccaf5b3e9a52bea8dffc9b646a20c7554ed45141596e3d379c\",\"dweb:/ipfs/QmQuUBXSKTRzQSWiwBDtTwF4hfht9BWo3dEnzVhm2UYxgv\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060b28061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806318160ddd14602d575b600080fd5b60336045565b60405190815260200160405180910390f35b600080546053906001906058565b905090565b600082821015607757634e487b7160e01b600052601160045260246000fd5b50039056fea26469706673582212201024e2d236c0abbb7d5d0d935d0f046bdc03017ff7d3bc5c5f392df1a5d1504b64736f6c634300080d0033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806318160ddd14602d575b600080fd5b60336045565b60405190815260200160405180910390f35b600080546053906001906058565b905090565b600082821015607757634e487b7160e01b600052601160045260246000fd5b50039056fea26469706673582212201024e2d236c0abbb7d5d0d935d0f046bdc03017ff7d3bc5c5f392df1a5d1504b64736f6c634300080d0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"totalSupply()\":{\"returns\":{\"_0\":\"A count of valid NFTs tracked by this contract, where each one of  them has an assigned and queryable owner not equal to the zero address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"totalSupply()\":{\"notice\":\"Count NFTs tracked by this contract\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ERC721Enumerable.sol\":\"ERC721Enumerable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ERC721Enumerable.sol\":{\"keccak256\":\"0xfd89b4c3610e4179d2e05bb7f87fddeba0517fe37ff5b410170705afe9b2a6eb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3460f2e938c79c0450c9733112cc11ab31c8a66c815116082a157dc1bc2c8087\",\"dweb:/ipfs/Qme9VaX6ThjHTabptzh6ub1tSgEcQt2dpDkNPGaztNTTE5\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50607880601d6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806318160ddd14602d575b600080fd5b60005460405190815260200160405180910390f3fea2646970667358221220ce2a2c0f8e4e0a64523b05480ae848a17ea3a675204e0dd25ca9ee580a76547e64736f6c634300080d0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806318160ddd14602d575b600080fd5b60005460405190815260200160405180910390f3fea2646970667358221220ce2a2c0f8e4e0a64523b05480ae848a17ea3a675204e0dd25ca9ee580a76547e64736f6c634300080d0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
     {
       "ast": {
         "nodeType": "YulBlock",
-        "src": "0:420:10",
+        "src": "0:193:10",
         "statements": [
           {
             "nodeType": "YulBlock",
@@ -122,228 +122,27 @@
               }
             ],
             "src": "14:177:10"
-          },
-          {
-            "body": {
-              "nodeType": "YulBlock",
-              "src": "245:173:10",
-              "statements": [
-                {
-                  "body": {
-                    "nodeType": "YulBlock",
-                    "src": "275:111:10",
-                    "statements": [
-                      {
-                        "expression": {
-                          "arguments": [
-                            {
-                              "kind": "number",
-                              "nodeType": "YulLiteral",
-                              "src": "296:1:10",
-                              "type": "",
-                              "value": "0"
-                            },
-                            {
-                              "arguments": [
-                                {
-                                  "kind": "number",
-                                  "nodeType": "YulLiteral",
-                                  "src": "303:3:10",
-                                  "type": "",
-                                  "value": "224"
-                                },
-                                {
-                                  "kind": "number",
-                                  "nodeType": "YulLiteral",
-                                  "src": "308:10:10",
-                                  "type": "",
-                                  "value": "0x4e487b71"
-                                }
-                              ],
-                              "functionName": {
-                                "name": "shl",
-                                "nodeType": "YulIdentifier",
-                                "src": "299:3:10"
-                              },
-                              "nodeType": "YulFunctionCall",
-                              "src": "299:20:10"
-                            }
-                          ],
-                          "functionName": {
-                            "name": "mstore",
-                            "nodeType": "YulIdentifier",
-                            "src": "289:6:10"
-                          },
-                          "nodeType": "YulFunctionCall",
-                          "src": "289:31:10"
-                        },
-                        "nodeType": "YulExpressionStatement",
-                        "src": "289:31:10"
-                      },
-                      {
-                        "expression": {
-                          "arguments": [
-                            {
-                              "kind": "number",
-                              "nodeType": "YulLiteral",
-                              "src": "340:1:10",
-                              "type": "",
-                              "value": "4"
-                            },
-                            {
-                              "kind": "number",
-                              "nodeType": "YulLiteral",
-                              "src": "343:4:10",
-                              "type": "",
-                              "value": "0x11"
-                            }
-                          ],
-                          "functionName": {
-                            "name": "mstore",
-                            "nodeType": "YulIdentifier",
-                            "src": "333:6:10"
-                          },
-                          "nodeType": "YulFunctionCall",
-                          "src": "333:15:10"
-                        },
-                        "nodeType": "YulExpressionStatement",
-                        "src": "333:15:10"
-                      },
-                      {
-                        "expression": {
-                          "arguments": [
-                            {
-                              "kind": "number",
-                              "nodeType": "YulLiteral",
-                              "src": "368:1:10",
-                              "type": "",
-                              "value": "0"
-                            },
-                            {
-                              "kind": "number",
-                              "nodeType": "YulLiteral",
-                              "src": "371:4:10",
-                              "type": "",
-                              "value": "0x24"
-                            }
-                          ],
-                          "functionName": {
-                            "name": "revert",
-                            "nodeType": "YulIdentifier",
-                            "src": "361:6:10"
-                          },
-                          "nodeType": "YulFunctionCall",
-                          "src": "361:15:10"
-                        },
-                        "nodeType": "YulExpressionStatement",
-                        "src": "361:15:10"
-                      }
-                    ]
-                  },
-                  "condition": {
-                    "arguments": [
-                      {
-                        "name": "x",
-                        "nodeType": "YulIdentifier",
-                        "src": "261:1:10"
-                      },
-                      {
-                        "name": "y",
-                        "nodeType": "YulIdentifier",
-                        "src": "264:1:10"
-                      }
-                    ],
-                    "functionName": {
-                      "name": "lt",
-                      "nodeType": "YulIdentifier",
-                      "src": "258:2:10"
-                    },
-                    "nodeType": "YulFunctionCall",
-                    "src": "258:8:10"
-                  },
-                  "nodeType": "YulIf",
-                  "src": "255:131:10"
-                },
-                {
-                  "nodeType": "YulAssignment",
-                  "src": "395:17:10",
-                  "value": {
-                    "arguments": [
-                      {
-                        "name": "x",
-                        "nodeType": "YulIdentifier",
-                        "src": "407:1:10"
-                      },
-                      {
-                        "name": "y",
-                        "nodeType": "YulIdentifier",
-                        "src": "410:1:10"
-                      }
-                    ],
-                    "functionName": {
-                      "name": "sub",
-                      "nodeType": "YulIdentifier",
-                      "src": "403:3:10"
-                    },
-                    "nodeType": "YulFunctionCall",
-                    "src": "403:9:10"
-                  },
-                  "variableNames": [
-                    {
-                      "name": "diff",
-                      "nodeType": "YulIdentifier",
-                      "src": "395:4:10"
-                    }
-                  ]
-                }
-              ]
-            },
-            "name": "checked_sub_t_uint256",
-            "nodeType": "YulFunctionDefinition",
-            "parameters": [
-              {
-                "name": "x",
-                "nodeType": "YulTypedName",
-                "src": "227:1:10",
-                "type": ""
-              },
-              {
-                "name": "y",
-                "nodeType": "YulTypedName",
-                "src": "230:1:10",
-                "type": ""
-              }
-            ],
-            "returnVariables": [
-              {
-                "name": "diff",
-                "nodeType": "YulTypedName",
-                "src": "236:4:10",
-                "type": ""
-              }
-            ],
-            "src": "196:222:10"
           }
         ]
       },
-      "contents": "{\n    { }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function checked_sub_t_uint256(x, y) -> diff\n    {\n        if lt(x, y)\n        {\n            mstore(0, shl(224, 0x4e487b71))\n            mstore(4, 0x11)\n            revert(0, 0x24)\n        }\n        diff := sub(x, y)\n    }\n}",
+      "contents": "{\n    { }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n}",
       "id": 10,
       "language": "Yul",
       "name": "#utility.yul"
     }
   ],
-  "sourceMap": "60:1390:2:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "60:1390:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:102;;;:::i;:::-;;;160:25:10;;;148:2;133:18;369:102:2;;;;;;;;415:7;442:17;;:21;;462:1;;442:21;:::i;:::-;435:28;;369:102;:::o;196:222:10:-;236:4;264:1;261;258:8;255:131;;;308:10;303:3;299:20;296:1;289:31;343:4;340:1;333:15;371:4;368:1;361:15;255:131;-1:-1:-1;403:9:10;;196:222::o",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ERC721Enumerable /* is ERC721 */ {\r\n\r\n    uint256[] private _allTokens;\r\n    \r\n    /// @notice Count NFTs tracked by this contract\r\n    /// @return A count of valid NFTs tracked by this contract, where each one of\r\n    ///  them has an assigned and queryable owner not equal to the zero address\r\n    function totalSupply() external view returns (uint256) {\r\n        return _allTokens.length - 1;\r\n    }\r\n\r\n    function _updateTokens(uint256 token) internal {\r\n        _allTokens.push(token);\r\n    }\r\n\r\n    /// @notice Enumerate valid NFTs\r\n    /// @dev Throws if `_index` >= `totalSupply()`.\r\n    /// @param _index A counter less than `totalSupply()`\r\n    /// @return The token identifier for the `_index`th NFT,\r\n    ///  (sort order not specified)\r\n    // function tokenByIndex(uint256 _index) external view returns (uint256);\r\n\r\n    /// @notice Enumerate NFTs assigned to an owner\r\n    /// @dev Throws if `_index` >= `balanceOf(_owner)` or if\r\n    ///  `_owner` is the zero address, representing invalid NFTs.\r\n    /// @param _owner An address where we are interested in NFTs owned by them\r\n    /// @param _index A counter less than `balanceOf(_owner)`\r\n    /// @return The token identifier for the `_index`th NFT assigned to `_owner`,\r\n    ///   (sort order not specified)\r\n    // function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);\r\n}",
+  "sourceMap": "60:1386:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "60:1386:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:98;415:7;442:17;369:98;;160:25:10;;;148:2;133:18;369:98:2;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ERC721Enumerable /* is ERC721 */ {\r\n\r\n    uint256[] private _allTokens;\r\n    \r\n    /// @notice Count NFTs tracked by this contract\r\n    /// @return A count of valid NFTs tracked by this contract, where each one of\r\n    ///  them has an assigned and queryable owner not equal to the zero address\r\n    function totalSupply() external view returns (uint256) {\r\n        return _allTokens.length;\r\n    }\r\n\r\n    function _updateTokens(uint256 token) internal {\r\n        _allTokens.push(token);\r\n    }\r\n\r\n    /// @notice Enumerate valid NFTs\r\n    /// @dev Throws if `_index` >= `totalSupply()`.\r\n    /// @param _index A counter less than `totalSupply()`\r\n    /// @return The token identifier for the `_index`th NFT,\r\n    ///  (sort order not specified)\r\n    // function tokenByIndex(uint256 _index) external view returns (uint256);\r\n\r\n    /// @notice Enumerate NFTs assigned to an owner\r\n    /// @dev Throws if `_index` >= `balanceOf(_owner)` or if\r\n    ///  `_owner` is the zero address, representing invalid NFTs.\r\n    /// @param _owner An address where we are interested in NFTs owned by them\r\n    /// @param _index A counter less than `balanceOf(_owner)`\r\n    /// @return The token identifier for the `_index`th NFT assigned to `_owner`,\r\n    ///   (sort order not specified)\r\n    // function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);\r\n}",
   "sourcePath": "D:\\Projects\\Block Chain\\Block-Chain-Learning\\nft-marketplace\\src\\contracts\\ERC721Enumerable.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/ERC721Enumerable.sol",
     "exportedSymbols": {
       "ERC721Enumerable": [
-        180
+        178
       ]
     },
-    "id": 181,
+    "id": 179,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -365,9 +164,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 180,
+        "id": 178,
         "linearizedBaseContracts": [
-          180
+          178
         ],
         "name": "ERC721Enumerable",
         "nameLocation": "69:16:2",
@@ -380,7 +179,7 @@
             "name": "_allTokens",
             "nameLocation": "129:10:2",
             "nodeType": "VariableDeclaration",
-            "scope": 180,
+            "scope": 178,
             "src": "111:28:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -411,75 +210,41 @@
           },
           {
             "body": {
-              "id": 166,
+              "id": 164,
               "nodeType": "Block",
-              "src": "424:47:2",
+              "src": "424:43:2",
               "statements": [
                 {
                   "expression": {
-                    "commonType": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                    "expression": {
+                      "id": 161,
+                      "name": "_allTokens",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 155,
+                      "src": "442:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+                        "typeString": "uint256[] storage ref"
+                      }
                     },
-                    "id": 164,
+                    "id": 162,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftExpression": {
-                      "expression": {
-                        "id": 161,
-                        "name": "_allTokens",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 155,
-                        "src": "442:10:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
-                          "typeString": "uint256[] storage ref"
-                        }
-                      },
-                      "id": 162,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "memberName": "length",
-                      "nodeType": "MemberAccess",
-                      "src": "442:17:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
-                    },
-                    "nodeType": "BinaryOperation",
-                    "operator": "-",
-                    "rightExpression": {
-                      "hexValue": "31",
-                      "id": 163,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "462:1:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1_by_1",
-                        "typeString": "int_const 1"
-                      },
-                      "value": "1"
-                    },
-                    "src": "442:21:2",
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "442:17:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "functionReturnParameters": 160,
-                  "id": 165,
+                  "id": 163,
                   "nodeType": "Return",
-                  "src": "435:28:2"
+                  "src": "435:24:2"
                 }
               ]
             },
@@ -490,7 +255,7 @@
               "text": "@notice Count NFTs tracked by this contract\n @return A count of valid NFTs tracked by this contract, where each one of\n  them has an assigned and queryable owner not equal to the zero address"
             },
             "functionSelector": "18160ddd",
-            "id": 167,
+            "id": 165,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -514,7 +279,7 @@
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 167,
+                  "scope": 165,
                   "src": "415:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -537,28 +302,28 @@
               ],
               "src": "414:9:2"
             },
-            "scope": 180,
-            "src": "369:102:2",
+            "scope": 178,
+            "src": "369:98:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 178,
+              "id": 176,
               "nodeType": "Block",
-              "src": "526:41:2",
+              "src": "522:41:2",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 175,
+                        "id": 173,
                         "name": "token",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 169,
-                        "src": "553:5:2",
+                        "referencedDeclaration": 167,
+                        "src": "549:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -573,31 +338,31 @@
                         }
                       ],
                       "expression": {
-                        "id": 172,
+                        "id": 170,
                         "name": "_allTokens",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 155,
-                        "src": "537:10:2",
+                        "src": "533:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 174,
+                      "id": 172,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "push",
                       "nodeType": "MemberAccess",
-                      "src": "537:15:2",
+                      "src": "533:15:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_uint256_$dyn_storage_ptr_$_t_uint256_$returns$__$bound_to$_t_array$_t_uint256_$dyn_storage_ptr_$",
                         "typeString": "function (uint256[] storage pointer,uint256)"
                       }
                     },
-                    "id": 176,
+                    "id": 174,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -605,39 +370,39 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "537:22:2",
+                    "src": "533:22:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 177,
+                  "id": 175,
                   "nodeType": "ExpressionStatement",
-                  "src": "537:22:2"
+                  "src": "533:22:2"
                 }
               ]
             },
-            "id": 179,
+            "id": 177,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_updateTokens",
-            "nameLocation": "488:13:2",
+            "nameLocation": "484:13:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 170,
+              "id": 168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 169,
+                  "id": 167,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "510:5:2",
+                  "nameLocation": "506:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 179,
-                  "src": "502:13:2",
+                  "scope": 177,
+                  "src": "498:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -645,10 +410,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 168,
+                    "id": 166,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "502:7:2",
+                    "src": "498:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -657,36 +422,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "501:15:2"
+              "src": "497:15:2"
             },
             "returnParameters": {
-              "id": 171,
+              "id": 169,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "526:0:2"
+              "src": "522:0:2"
             },
-            "scope": 180,
-            "src": "479:88:2",
+            "scope": 178,
+            "src": "475:88:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 181,
-        "src": "60:1390:2",
+        "scope": 179,
+        "src": "60:1386:2",
         "usedErrors": []
       }
     ],
-    "src": "33:1417:2"
+    "src": "33:1413:2"
   },
   "legacyAST": {
     "absolutePath": "project:/src/contracts/ERC721Enumerable.sol",
     "exportedSymbols": {
       "ERC721Enumerable": [
-        180
+        178
       ]
     },
-    "id": 181,
+    "id": 179,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -708,9 +473,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 180,
+        "id": 178,
         "linearizedBaseContracts": [
-          180
+          178
         ],
         "name": "ERC721Enumerable",
         "nameLocation": "69:16:2",
@@ -723,7 +488,7 @@
             "name": "_allTokens",
             "nameLocation": "129:10:2",
             "nodeType": "VariableDeclaration",
-            "scope": 180,
+            "scope": 178,
             "src": "111:28:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -754,75 +519,41 @@
           },
           {
             "body": {
-              "id": 166,
+              "id": 164,
               "nodeType": "Block",
-              "src": "424:47:2",
+              "src": "424:43:2",
               "statements": [
                 {
                   "expression": {
-                    "commonType": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                    "expression": {
+                      "id": 161,
+                      "name": "_allTokens",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 155,
+                      "src": "442:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+                        "typeString": "uint256[] storage ref"
+                      }
                     },
-                    "id": 164,
+                    "id": 162,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftExpression": {
-                      "expression": {
-                        "id": 161,
-                        "name": "_allTokens",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 155,
-                        "src": "442:10:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
-                          "typeString": "uint256[] storage ref"
-                        }
-                      },
-                      "id": 162,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "memberName": "length",
-                      "nodeType": "MemberAccess",
-                      "src": "442:17:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
-                    },
-                    "nodeType": "BinaryOperation",
-                    "operator": "-",
-                    "rightExpression": {
-                      "hexValue": "31",
-                      "id": 163,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "462:1:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1_by_1",
-                        "typeString": "int_const 1"
-                      },
-                      "value": "1"
-                    },
-                    "src": "442:21:2",
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "442:17:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "functionReturnParameters": 160,
-                  "id": 165,
+                  "id": 163,
                   "nodeType": "Return",
-                  "src": "435:28:2"
+                  "src": "435:24:2"
                 }
               ]
             },
@@ -833,7 +564,7 @@
               "text": "@notice Count NFTs tracked by this contract\n @return A count of valid NFTs tracked by this contract, where each one of\n  them has an assigned and queryable owner not equal to the zero address"
             },
             "functionSelector": "18160ddd",
-            "id": 167,
+            "id": 165,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -857,7 +588,7 @@
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 167,
+                  "scope": 165,
                   "src": "415:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -880,28 +611,28 @@
               ],
               "src": "414:9:2"
             },
-            "scope": 180,
-            "src": "369:102:2",
+            "scope": 178,
+            "src": "369:98:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 178,
+              "id": 176,
               "nodeType": "Block",
-              "src": "526:41:2",
+              "src": "522:41:2",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 175,
+                        "id": 173,
                         "name": "token",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 169,
-                        "src": "553:5:2",
+                        "referencedDeclaration": 167,
+                        "src": "549:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -916,31 +647,31 @@
                         }
                       ],
                       "expression": {
-                        "id": 172,
+                        "id": 170,
                         "name": "_allTokens",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 155,
-                        "src": "537:10:2",
+                        "src": "533:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                           "typeString": "uint256[] storage ref"
                         }
                       },
-                      "id": 174,
+                      "id": 172,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "push",
                       "nodeType": "MemberAccess",
-                      "src": "537:15:2",
+                      "src": "533:15:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_uint256_$dyn_storage_ptr_$_t_uint256_$returns$__$bound_to$_t_array$_t_uint256_$dyn_storage_ptr_$",
                         "typeString": "function (uint256[] storage pointer,uint256)"
                       }
                     },
-                    "id": 176,
+                    "id": 174,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -948,39 +679,39 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "537:22:2",
+                    "src": "533:22:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 177,
+                  "id": 175,
                   "nodeType": "ExpressionStatement",
-                  "src": "537:22:2"
+                  "src": "533:22:2"
                 }
               ]
             },
-            "id": 179,
+            "id": 177,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_updateTokens",
-            "nameLocation": "488:13:2",
+            "nameLocation": "484:13:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 170,
+              "id": 168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 169,
+                  "id": 167,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "510:5:2",
+                  "nameLocation": "506:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 179,
-                  "src": "502:13:2",
+                  "scope": 177,
+                  "src": "498:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -988,10 +719,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 168,
+                    "id": 166,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "502:7:2",
+                    "src": "498:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1000,27 +731,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "501:15:2"
+              "src": "497:15:2"
             },
             "returnParameters": {
-              "id": 171,
+              "id": 169,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "526:0:2"
+              "src": "522:0:2"
             },
-            "scope": 180,
-            "src": "479:88:2",
+            "scope": 178,
+            "src": "475:88:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 181,
-        "src": "60:1390:2",
+        "scope": 179,
+        "src": "60:1386:2",
         "usedErrors": []
       }
     ],
-    "src": "33:1417:2"
+    "src": "33:1413:2"
   },
   "compiler": {
     "name": "solc",
@@ -1028,7 +759,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-04-06T22:38:16.816Z",
+  "updatedAt": "2022-04-06T22:41:38.717Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
