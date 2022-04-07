@@ -13,11 +13,11 @@ contract ERC721Enumerable is ERC721 {
     // with mapping, place tokenID in _allTokens
     mapping(uint256 => uint256) private _allTokensIndex;
 
-    // with mapping, place Owner ID in the list of all Owner's IDs
-    mapping(uint256 => uint256[]) private _allOwnerIndex;
+    // with mapping, place Owner owner address in the list of all Owner's IDs
+    mapping(address => uint256[]) private _ownedTokens;
 
     // with mapping, place Token ID in the ownerTokenList
-    mapping(uint256 => uint256) private _ownerTokenList;
+    mapping(uint256 => uint256) private _ownedTokensIndex;
 
     function totalSupply() external view returns (uint256) {
         return _allTokens.length;
@@ -26,6 +26,31 @@ contract ERC721Enumerable is ERC721 {
     function _mint(address to, uint256 _tokenID) internal override {
         super._mint(to, _tokenID);
         _allTokens.push(_tokenID);
+
+        _addTokenToOwnerEnumeration(to, _tokenID);
+    }
+
+    function _addTokensToAllTokenEnumeration(uint256 tokenID) private {
+        // gets length, example:
+        // No value == 0 length
+        // * Makes token index 0
+        _allTokensIndex[tokenID] = _allTokens.length;
+
+        // adds a value in the _allTokens
+        _allTokens.push(tokenID);
+
+        // now when this repeats.
+        // * _allTokens.length will give index of 1.
+        // * while when a new value gets push, the new index would be 2.
+    }
+
+    function _addTokenToOwnerEnumeration(address to, uint256 tokenID) private {
+        // 1. add address and token id to the _ownedTokens 
+        _ownedTokens[to] = _allTokens;
+        
+        // 2. ownedTokensIndex tokenld set to address of ownedTokens position
+        _ownedTokensIndex[tokenID] = tokenID;        
+
     }
 
 }
