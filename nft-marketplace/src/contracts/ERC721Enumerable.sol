@@ -1,31 +1,71 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ERC721Enumerable /* is ERC721 */ {
+import "./ERC721.sol";
 
+contract ERC721Enumerable is ERC721 {
     uint256[] private _allTokens;
-    
-    /// @notice Count NFTs tracked by this contract
-    /// @return A count of valid NFTs tracked by this contract, where each one of
-    ///  them has an assigned and queryable owner not equal to the zero address
+
+// mapping from tokenld to position in _allTokens array
+// mapping of owner to list of all owner token ids
+// mapping from token ID index of the owner tokens list I
+
+    // with mapping, place tokenID in _allTokens
+    mapping(uint256 => uint256) private _allTokensIndex;
+
+    // with mapping, place Owner ID in the list of all Owner's IDs
+    mapping(uint256 => uint256[]) private _allOwnerIndex;
+
+    // with mapping, place Token ID in the ownerTokenList
+    mapping(uint256 => uint256) private _ownerTokenList;
+
     function totalSupply() external view returns (uint256) {
         return _allTokens.length;
     }
 
+    function _mint(address to, uint256 _tokenID) internal override {
+        super._mint(to, _tokenID);
+        _allTokens.push(_tokenID);
+    }
 
-    /// @notice Enumerate valid NFTs
-    /// @dev Throws if `_index` >= `totalSupply()`.
-    /// @param _index A counter less than `totalSupply()`
-    /// @return The token identifier for the `_index`th NFT,
-    ///  (sort order not specified)
-    // function tokenByIndex(uint256 _index) external view returns (uint256);
-
-    /// @notice Enumerate NFTs assigned to an owner
-    /// @dev Throws if `_index` >= `balanceOf(_owner)` or if
-    ///  `_owner` is the zero address, representing invalid NFTs.
-    /// @param _owner An address where we are interested in NFTs owned by them
-    /// @param _index A counter less than `balanceOf(_owner)`
-    /// @return The token identifier for the `_index`th NFT assigned to `_owner`,
-    ///   (sort order not specified)
-    // function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// uint256[] private _allTokens;
+
+// // mapping from tokenld to position in _allTokens array
+// mapping (uint256 => uint256) private _allTokensIndex;
+
+// // mapping of owner to list of all owner token ids
+// mapping (address => uint256[]) private _ownedTokens;
+
+// // mapping from token ID index of the owner tokens list I
+// mapping (uint256 => uint256) private _ownedTokenIndex;
+
+
+// function totalSupply() external view returns (uint256) {
+//     return _allTokens.length;
+// }
+
+// function _addTokensToTotalSupply(uint256 tokenID) private {
+//     _allTokens.push(_allTokensIndex[tokenID]);
+// }
