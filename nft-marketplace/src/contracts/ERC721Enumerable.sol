@@ -27,6 +27,7 @@ contract ERC721Enumerable is ERC721 {
         super._mint(to, _tokenID);
         _allTokens.push(_tokenID);
 
+        _addTokensToAllTokenEnumeration(_tokenID);
         _addTokenToOwnerEnumeration(to, _tokenID);
     }
 
@@ -45,14 +46,22 @@ contract ERC721Enumerable is ERC721 {
     }
 
     function _addTokenToOwnerEnumeration(address to, uint256 tokenID) private {
-        // 1. add address and token id to the _ownedTokens 
-        _ownedTokens[to] = _allTokens;
+        // 1. ownedTokensIndex tokenld set to address of ownedTokens position
+        _ownedTokensIndex[tokenID] = _ownedTokens[to].length;
         
-        // 2. ownedTokensIndex tokenld set to address of ownedTokens position
-        _ownedTokensIndex[tokenID] = tokenID;        
-
+        // 2. add address and token id to the _ownedTokens 
+        _ownedTokens[to].push(tokenID);
     }
 
+    // Gives the amount of tokens
+    function tokenByIndex() public view returns(uint256 tokenIndex){
+        return _allTokens.length;
+    }
+
+    // Gives the amount of by Owners 
+    function tokenOwnerByIndex(uint256 tokenID) public view returns(uint256 tokenIndex){
+        return _allTokensIndex[tokenID];
+    }
 }
 
 
