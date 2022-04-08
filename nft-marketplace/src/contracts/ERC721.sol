@@ -38,7 +38,7 @@ contract ERC721 {
         emit Transfer(address(0), to, _tokenId);
     }
 
-    function balanceOf(address _owner) external view returns (uint256){
+    function balanceOf(address _owner) public view returns (uint256){
         require(_owner != address(0), "ERC721: The Owner Address is 0x0. Owner does not exist.");
         return _ownedTokens[_owner];
     }
