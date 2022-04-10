@@ -1,51 +1,135 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ERC721 {
+import './ERC165.sol';
+import './interfaces/IERC721.sol';
 
-    // Transfering Function
-    event Transfer(address indexed to, address indexed from, uint256 indexed _tokenId);
+    /*
 
-    // By default, uint = uint256, although we can always specify the amount of int.
-    // Using token ID to find the Owner
-    mapping(uint256 => address) private _tokenOwner;
-    
-    // Using addresses to check the number of tokens owned by the owner.
-    mapping(address => uint256) private _ownedTokens;
+    building out the minting function:
+        a. nft to point to an address
+        b. keep track of the token ids 
+        c. keep track of token owner addresses to token ids
+        d. keep track of how many tokens an owner address has
+        e. create an event that emits a transfer log - contract address, 
+         where it is being minted to, the id
 
-    // Minting is the process of converting a digital asset into an NFT.
-    
-    // How it will work?
-    // a function that will get owner adress and their id, we will call that mint
-    // address of the asset will belong to owner.
-    // and there will be an increase in the amount of tokens.
-    // Have to make sure that the mint address is not 0x0
-    // and that the asset has already been minted.
-    function _mint(address to, uint256 _tokenId) internal virtual {
-        // Have to make sure that the address is not 0x0.
-        require(to != address(0), "ERC721: The Owner Address is 0x0.");
-        
-        // Have to make sure that the asset is not already minted
-        require(_tokenOwner[_tokenId] == address(0), "ERC721: The token has already been minted");
-        
-        // setting address of owner
-        _tokenOwner[_tokenId] = to;
+    */
 
-        // increase in amount of tokens.
-        _ownedTokens[to]++;
+contract ERC721 is ERC165, IERC721 { 
 
-        // Using the event and that will take emit.
-        emit Transfer(address(0), to, _tokenId);
+    // mapping in solidity creates a hash table of key pair values
+   
+    // Mapping from token id to the owner
+    mapping(uint256 => address) private _tokenOwner; 
+
+    // Mapping from owner to number of owned tokens 
+    mapping(address => uint256) private _OwnedTokensCount;
+
+    // Mapping from token id to approved addresses
+    mapping(uint256 => address) private _tokenApprovals; 
+
+
+    // EXERCISE: 1. REGISTER THE INTERFACE FOR THE ERC721 contract so that it includes
+    // the following functions: balanceOf, ownerOf, transferFrom
+    // *note by register the interface: write the constructors with the 
+    // according byte conversions
+
+    // 2.REGISTER THE INTERFACE FOR THE ERC721Enumerable contract so that includes
+    // totalSupply, tokenByIndex, tokenOfOwnerByIndex functions
+
+    // 3.REGISTER THE INTERFACE FOR THE ERC721Metadata contract so that includes
+    // name and the symbol functions
+
+
+    constructor() {
+        _registerInterface(bytes4(keccak256('balanceOf(bytes4)')^
+        keccak256('ownerOf(bytes4)')^keccak256('transferFrom(bytes4)')));
     }
 
-    function balanceOf(address _owner) public view returns (uint256){
-        require(_owner != address(0), "ERC721: The Owner Address is 0x0. Owner does not exist.");
-        return _ownedTokens[_owner];
-    }
+        function balanceOf(address _owner) public override view returns(uint256) {
+            require(_owner != address(0), 'owner query for non-existent token');
+            return _OwnedTokensCount[_owner];
+        }
 
-    function ownerOf(uint _owner) external view returns (address) {        
-        address owner = _tokenOwner[_owner];
-        require(owner != address(0), "ERC721: The Owner Address is 0x0. Owner does not exist.");
+    /// @notice Find the owner of an NFT
+    /// @dev NFTs assigned to zero address are considered invalid, and queries
+    ///  about them do throw.
+    /// @param _tokenId The identifier for an NFT
+    /// @return The address of the owner of the NFT
+    function ownerOf(uint256 _tokenId) public view override returns (address) {
+        address owner = _tokenOwner[_tokenId];
+        require(owner != address(0), 'owner query for non-existent token');
         return owner;
     }
+
+
+    function _exists(uint256 tokenId) internal view returns(bool){
+        // setting the address of nft owner to check the mapping
+        // of the address from tokenOwner at the tokenId 
+         address owner = _tokenOwner[tokenId];
+         // return truthiness tha address is not zero
+         return owner != address(0);
+    }
+
+    function _mint(address to, uint256 tokenId) internal virtual {
+        // requires that the address isn't zero
+        require(to != address(0), 'ERC721: minting to the zero addres');
+        // requires that the token does not already exist
+        require(!_exists(tokenId), 'ERC721: token already minted');
+        // we are adding a new address with a token id for minting
+        _tokenOwner[tokenId] = to; 
+        // keeping track of each address that is minting and adding one to the count
+        _OwnedTokensCount[to] += 1;  
+
+        emit Transfer(address(0), to, tokenId);
+    }
+
+    /// @notice Transfer ownership of an NFT 
+    /// @dev Throws unless `msg.sender` is the current owner, an authorized
+    ///  operator, or the approved address for this NFT. Throws if `_from` is
+    ///  not the current owner. Throws if `_to` is the zero address. Throws if
+    ///  `_tokenId` is not a valid NFT.
+    /// @param _from The current owner of the NFT
+    /// @param _to The new owner
+    /// @param _tokenId The NFT to transfer
+
+    function _transferFrom(address _from, address _to, uint256 _tokenId) internal {
+        require(_to != address(0), 'Error - ERC721 Transfer to the zero address');
+        require(ownerOf(_tokenId) == _from, 'Trying to transfer a token the address does not own!');
+
+        _OwnedTokensCount[_from] -= 1;
+        _OwnedTokensCount[_to] += 1;
+
+        _tokenOwner[_tokenId] = _to;
+
+        emit Transfer(_from, _to, _tokenId);
+    }
+
+    function transferFrom(address _from, address _to, uint256 _tokenId) override public {
+        require(isApprovedOrOwner(msg.sender, _tokenId));
+        _transferFrom(_from, _to, _tokenId);
+
+    }
+
+    // 1. require that the person approving is the owner
+    // 2. we are approving an address to a token (tokenId)
+    // 3. require that we cant approve sending tokens of the owner to the owner (current caller)
+    // 4. update the map of the approval addresses
+
+    function approve(address _to, uint256 tokenId) public {
+        address owner = ownerOf(tokenId);
+        require(_to != owner, 'Error - approval to current owner');
+        require(msg.sender == owner, 'Current caller is not the owner of the token');
+        _tokenApprovals[tokenId] = _to;
+        emit Approval(owner, _to, tokenId);
+    } 
+
+    function isApprovedOrOwner(address spender, uint256 tokenId) internal view returns(bool) {
+        require(_exists(tokenId), 'token does not exist');
+        address owner = ownerOf(tokenId);
+        return(spender == owner); 
+    }
+
 }
+

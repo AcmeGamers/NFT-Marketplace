@@ -2,12 +2,15 @@
 pragma solidity ^0.8.0;
 
 import './ERC721Metadata.sol';
-import "./ERC721Enumerable.sol";
+import './ERC721Enumerable.sol';
 
-contract Connector is ERC721Metadata, ERC721Enumerable {
-    // This will carry metadata information of the NFT contract and will be used by the marketplace
-    constructor(string memory _name, string memory _symbol) ERC721Metadata(_name, _symbol) {
-        _name = _name;
-        _symbol= _symbol;
+contract ERC721Connector is ERC721Metadata, ERC721Enumerable {
+
+    // we deploy connector right away
+    // we want to carry the metadata info over
+
+    constructor(string memory name, string memory symbol)  ERC721Metadata(name, symbol) {
+        
     }
+
 }

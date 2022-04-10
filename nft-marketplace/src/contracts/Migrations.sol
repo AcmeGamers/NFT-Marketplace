@@ -8,7 +8,7 @@ contract Migrations {
   modifier restricted() {
     require(
       msg.sender == owner,
-      "This function is restricted to the contract's owner"
+      "This function is restricted to the contract's owner!"
     );
     _;
   }
@@ -21,4 +21,5 @@ contract Migrations {
     Migrations upgraded = Migrations(new_address);
     upgraded.setCompleted(last_completed_migration);
   }
+
 }

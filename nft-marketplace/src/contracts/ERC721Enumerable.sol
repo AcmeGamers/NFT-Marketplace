@@ -1,107 +1,68 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./ERC721.sol";
+import './ERC721.sol';
+import './interfaces/IERC721Enumerable.sol';
 
-contract ERC721Enumerable is ERC721 {
+contract ERC721Enumerable is IERC721Enumerable, ERC721 {
+
     uint256[] private _allTokens;
 
-// mapping from tokenld to position in _allTokens array
-// mapping of owner to list of all owner token ids
-// mapping from token ID index of the owner tokens list I
+    // mapping from tokenId to position in _allTokens array
+        mapping(uint256 => uint256) private _allTokensIndex;
 
-    // with mapping, place tokenID in _allTokens
-    mapping(uint256 => uint256) private _allTokensIndex;
+    // mapping of owner to list of all owner token ids
+        mapping(address => uint256[]) private _ownedTokens;
 
-    // with mapping, place Owner owner address in the list of all Owner's IDs
-    mapping(address => uint256[]) private _ownedTokens;
+    // mapping from token ID to index of the owner tokens list 
+        mapping(uint256 => uint256) private _ownedTokensIndex;
 
-    // with mapping, place Token ID in the ownerTokenList
-    mapping(uint256 => uint256) private _ownedTokensIndex;
-
-    function totalSupply() public view returns (uint256) {
-        return _allTokens.length;
+    
+    constructor() {
+        _registerInterface(bytes4(keccak256('totalSupply(bytes4)')^
+        keccak256('tokenByIndex(bytes4)')^keccak256('tokenOfOwnerByIndex(bytes4)')));
     }
 
-    function _mint(address to, uint256 _tokenID) internal override {
-        super._mint(to, _tokenID);
-        _allTokens.push(_tokenID);
-
-        _addTokensToAllTokenEnumeration(_tokenID);
-        _addTokenToOwnerEnumeration(to, _tokenID);
+    function _mint(address to, uint256 tokenId) internal override(ERC721) {
+        super._mint(to, tokenId);
+        // 2 things! A. add tokens to the owner
+        // B. all tokens to our totalsuppy - to allTokens
+        _addTokensToAllTokenEnumeration(tokenId); 
+        _addTokensToOwnerEnumeration(to, tokenId);
     }
 
-    function _addTokensToAllTokenEnumeration(uint256 tokenID) private {
-        // gets length, example:
-        // No value == 0 length
-        // * Makes token index 0
-        _allTokensIndex[tokenID] = _allTokens.length;
-
-        // adds a value in the _allTokens
-        _allTokens.push(tokenID);
-
-        // now when this repeats.
-        // * _allTokens.length will give index of 1.
-        // * while when a new value gets push, the new index would be 2.
+    // add tokens to the _alltokens array and set the position of the tokens indexes
+    function _addTokensToAllTokenEnumeration(uint256 tokenId) private {
+        _allTokensIndex[tokenId] = _allTokens.length;
+        _allTokens.push(tokenId); 
     }
 
-    function _addTokenToOwnerEnumeration(address to, uint256 tokenID) private {
-        // 1. ownedTokensIndex tokenld set to address of ownedTokens position
-        _ownedTokensIndex[tokenID] = _ownedTokens[to].length;
-        
-        // 2. add address and token id to the _ownedTokens 
-        _ownedTokens[to].push(tokenID);
+    function _addTokensToOwnerEnumeration(address to, uint256 tokenId) private {
+        // EXERCISE - CHALLENGE - DO THESE THREE THINGS:
+        // 1. add address and token id to the _ownedTokens
+        // 2. ownedTokensIndex tokenId set to address of 
+        // ownedTokens position
+        // 3. we want to execute the function with minting
+        _ownedTokensIndex[tokenId] = _ownedTokens[to].length;
+        _ownedTokens[to].push(tokenId);   
     }
 
-    // Gives the amount of tokens
-    function tokenByIndex(uint256 index) public view returns(uint256){
-        require(index < totalSupply(), 'Global Index is lager than the total Supply');
+    // two functions - one that returns tokenByIndex and 
+    // another one that returns tokenOfOwnerByIndex
+    function tokenByIndex(uint256 index) public override view returns(uint256) {
+        // make sure that the index is not out of bounds of the total supply 
+        require(index < totalSupply(), 'global index is out of bounds!');
         return _allTokens[index];
     }
 
-    // Gives the amount of by Owners 
-    function tokenOwnerByIndex(address owner, uint256 index) public view returns(uint256){
-        require(index < balanceOf(owner), 'Owner index is lager than the total Supply');
-        return _ownedTokens[owner][index];
+    function tokenOfOwnerByIndex(address owner, uint index) public override view returns(uint256) {
+        require(index < balanceOf(owner),'owner index is out of bounds!');
+        return _ownedTokens[owner][index];  
     }
+
+    // return the total supply of the _allTokens array
+    function totalSupply() public override view returns(uint256) {
+        return _allTokens.length;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// uint256[] private _allTokens;
-
-// // mapping from tokenld to position in _allTokens array
-// mapping (uint256 => uint256) private _allTokensIndex;
-
-// // mapping of owner to list of all owner token ids
-// mapping (address => uint256[]) private _ownedTokens;
-
-// // mapping from token ID index of the owner tokens list I
-// mapping (uint256 => uint256) private _ownedTokenIndex;
-
-
-// function totalSupply() external view returns (uint256) {
-//     return _allTokens.length;
-// }
-
-// function _addTokensToTotalSupply(uint256 tokenID) private {
-//     _allTokens.push(_allTokensIndex[tokenID]);
-// }
