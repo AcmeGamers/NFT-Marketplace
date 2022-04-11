@@ -1,6 +1,6 @@
 const chai = require("chai");
 var assert = chai.assert;
-const KryptoBirdz = artifacts.require("./Kryptobird");
+const KryptoBirdz = artifacts.require("./KryptoBird");
 
 // Checking for Chai
 require("chai")
@@ -46,8 +46,28 @@ contract("Kryptobird", (accounts) => {
       );
       assert.equal(event._to, accounts[0], "Obtained by msg.sender");
 
-      //   failure
+      // failure
       await k.mint("https...1").should.be.rejected;
+    });
+  });
+
+  describe("Indexing", async () => {
+    it("Lists of KryptoBirdz", async () => {
+      await k.mint("https...2");
+      await k.mint("https...3");
+      await k.mint("https...4");
+      let totalSupply_2 = await k.totalSupply(),
+        result = [],
+        expected = ["https...1", "https...2", "https...3", "https...4"];
+      for (let i = 0; result.length === totalSupply_2; i++) {
+        await result.push(k.tokenByIndex[i]);
+      }
+
+      assert.equal(
+        expected,
+        result,
+        "Lists compiled succesfully, all the contracts are in the list."
+      );
     });
   });
 });
