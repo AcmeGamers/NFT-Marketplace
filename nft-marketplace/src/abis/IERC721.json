@@ -113,7 +113,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IERC721.sol\":\"IERC721\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IERC721.sol\":{\"keccak256\":\"0x93bb80a189133f7e93071a8260a5511667bbbc08f9aa9773e128dc855808bc6b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f2a45ec83b89f9f0fe04600c22f5bf62beecfdbc89388f30f2144992247b68cf\",\"dweb:/ipfs/QmQLu9nKfC7VJC8H8ts9EZwovZuT5d4y84TwDxUmxUuzfx\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IERC721.sol\":\"IERC721\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IERC721.sol\":{\"keccak256\":\"0x93bb80a189133f7e93071a8260a5511667bbbc08f9aa9773e128dc855808bc6b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f2a45ec83b89f9f0fe04600c22f5bf62beecfdbc89388f30f2144992247b68cf\",\"dweb:/ipfs/QmQLu9nKfC7VJC8H8ts9EZwovZuT5d4y84TwDxUmxUuzfx\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -122,7 +122,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC721  {\n\n    event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);\n\n    event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);\n\n    function balanceOf(address _owner) external view returns (uint256);\n\n    function ownerOf(uint256 _tokenId) external view returns (address);\n\n    // function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable;\n\n    // function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable;\n\n    function transferFrom(address _from, address _to, uint256 _tokenId) external;\n\n    // function approve(address _approved, uint256 _tokenId) external payable;\n\n    // function setApprovalForAll(address _operator, bool _approved) external;\n\n    // function getApproved(uint256 _tokenId) external view returns (address);\n\n    // function isApprovedForAll(address _owner, address _operator) external view returns (bool);\n}\n",
-  "sourcePath": "/Users/mauriceknecht/Desktop/nft-marketplace-starter-kit/src/contracts/interfaces/IERC721.sol",
+  "sourcePath": "D:\\Projects\\Block Chain\\Block-Chain-Learning\\nft-marketplace\\src\\contracts\\interfaces\\IERC721.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/interfaces/IERC721.sol",
     "exportedSymbols": {
@@ -148,6 +148,7 @@
       {
         "abstract": false,
         "baseContracts": [],
+        "canonicalName": "IERC721",
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
@@ -161,6 +162,7 @@
         "nodes": [
           {
             "anonymous": false,
+            "eventSelector": "ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
             "id": 751,
             "name": "Transfer",
             "nameLocation": "89:8:8",
@@ -262,6 +264,7 @@
           },
           {
             "anonymous": false,
+            "eventSelector": "8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
             "id": 759,
             "name": "Approval",
             "nameLocation": "180:8:8",
@@ -673,6 +676,7 @@
       {
         "abstract": false,
         "baseContracts": [],
+        "canonicalName": "IERC721",
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
@@ -686,6 +690,7 @@
         "nodes": [
           {
             "anonymous": false,
+            "eventSelector": "ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
             "id": 751,
             "name": "Transfer",
             "nameLocation": "89:8:8",
@@ -787,6 +792,7 @@
           },
           {
             "anonymous": false,
+            "eventSelector": "8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
             "id": 759,
             "name": "Approval",
             "nameLocation": "180:8:8",
@@ -1175,11 +1181,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.1",
-  "updatedAt": "2021-09-16T20:01:53.894Z",
+  "schemaVersion": "3.4.6",
+  "updatedAt": "2022-04-11T00:08:38.547Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
