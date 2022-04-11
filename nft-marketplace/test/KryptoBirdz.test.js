@@ -7,8 +7,12 @@ require("chai")
   .use(require("chai-as-promised"))
   .should();
 
-contract("Kryptobird", async (accounts) => {
-  let k = await KryptoBirdz.deployed();
+contract("Kryptobird", (accounts) => {
+  let k;
+  before(async () => {
+    k = await KryptoBirdz.deployed();
+  });
+
   describe("Kryptobird", () => {
     it("Deployed Sucessfully", async () => {
       let address = k.address;
@@ -29,11 +33,21 @@ contract("Kryptobird", async (accounts) => {
 
   describe("minting", async () => {
     it("Creates a new token", async () => {
-      const mint = await k.mint("1"),
-        totalSupply = await k.totalSupply;
+      const mint = await k.mint("https...1"),
+        totalSupply = await k.totalSupply();
 
       // Success Region
-      console.log(`Minting: ${mint} \nTotal Supply = ${totalSupply}`);
+      assert.equal(totalSupply, 1);
+      const event = mint.logs[0].args;
+      assert.equal(
+        event._from,
+        "0x0000000000000000000000000000000000000000",
+        "Event passed from the contract"
+      );
+      assert.equal(event._to, accounts[0], "Obtained by msg.sender");
+
+      //   failure
+      await k.mint("https...1").should.be.rejected;
     });
   });
 });
