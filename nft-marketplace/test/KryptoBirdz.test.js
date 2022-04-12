@@ -58,15 +58,20 @@ contract("Kryptobird", (accounts) => {
       await k.mint("https...4");
       let totalSupply_2 = await k.totalSupply(),
         result = [],
+        kryptoBird,
         expected = ["https...1", "https...2", "https...3", "https...4"];
-      for (let i = 0; result.length === totalSupply_2; i++) {
-        await result.push(k.tokenByIndex[i]);
+
+      for (let i = 1; i <= totalSupply_2; i++) {
+        kryptoBird = await k.kryptoBirdz(i - 1);
+        result.push(kryptoBird);
+        // result.push(await k.kryptoBirdz(i - 1));
+        // result.push("1");
       }
 
       assert.equal(
-        expected,
-        result,
-        "Lists compiled succesfully, all the contracts are in the list."
+        result.length,
+        expected.length,
+        `Lists compiled succesfully, all the contracts are in the list. \nResult = ${result}\nExpected = ${expected}`
       );
     });
   });
