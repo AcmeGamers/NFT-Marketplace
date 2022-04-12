@@ -4,8 +4,6 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import KryptoBird from "../abis/KryptoBird.json";
 
 export default function Home() {
-  // Adding Load Data
-  loadData();
   let web3, accounts;
   async function loadData() {
     const loadProvider = await detectEthereumProvider();
@@ -24,6 +22,8 @@ export default function Home() {
     console.log(accounts);
   }
 
+  // Adding Load Data
+  loadData();
   // checking blockchain data
   loadBlockChainData();
 
