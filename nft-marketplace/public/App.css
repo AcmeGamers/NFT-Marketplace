@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+}
+
+/* Pre-Defined CSS */
+.width-30 {
+  width: 30%;
+}
+.width-70 {
+  width: 70%;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.flex-start {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.no-bullets {
+  list-style: none;
+}
+
+.margin-10px {
+  margin: 10px;
+}
+
+.lr-padding-50px {
+  padding: 0 50px;
+}
+.ud-padding-50px {
+  padding: 50px 0;
+}
+
+/* 
+------
+Custom
+------
+*/
+#menu > li {
+  padding: 10px;
+}
+#navbar {
+  background: beige;
+}
