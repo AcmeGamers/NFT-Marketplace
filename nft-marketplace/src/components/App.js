@@ -14,9 +14,11 @@ import Header from "./Components/navbar/header";
 // import Footer from "./Components/navbar/footer";
 
 export default function Home() {
-  // create a state to store accounts
-  let [account, setAccount] = useState("");
-  let web3 = new Web3(window.web3.currentProvider);
+  // creating states to store data in accounts
+  let [account, setAccount] = useState(""),
+    [contract, setContract] = useState(null),
+    [totalSupply, setTotalSupply] = useState(0),
+    web3 = new Web3(window.web3.currentProvider);
 
   async function loadWeb3() {
     if (window.ethereum) {
@@ -52,7 +54,8 @@ export default function Home() {
     if (networkData) {
       var abi = KryptoBird.abi,
         address = networkData.address,
-        contract = new web3.eth.Contract(abi);
+        contract = new web3.eth.Contract(abi, address);
+      setContract(contract);
 
       console.log(`ABI\n`);
       console.log(abi);
@@ -60,6 +63,15 @@ export default function Home() {
       console.log(address);
       console.log(`\nContract`);
       console.log(contract);
+
+      console.log("Contract Data");
+      contract.methods
+        .totalSupply()
+        .call()
+        .then((totalSupply) => {
+          setTotalSupply(totalSupply);
+          console.log(totalSupply);
+        });
     }
   }
 
