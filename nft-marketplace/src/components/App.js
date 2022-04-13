@@ -5,9 +5,8 @@
 // ----------
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
-import { Accounts } from "web3-eth-accounts";
 import KryptoBird from "../abis/KryptoBird.json";
-import { Contract } from "web3-eth-contract";
+// import { Accounts } from "web3-eth-accounts";
 
 // ----------
 // Components
