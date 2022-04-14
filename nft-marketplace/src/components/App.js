@@ -14,21 +14,12 @@ import Header from "./Components/navbar/header";
 // import Footer from "./Components/navbar/footer";
 
 export default class Home extends Component {
-  componentDidMount() {
-    this.loadWeb3();
+  async componentDidMount() {
+    await this.loadWeb3();
     // logging account states
     console.log(window.web3.eth.accounts);
-    this.loadBlockchainData();
+    await this.loadBlockchainData();
   }
-
-  // Creating states for account
-  state = {
-    account: "",
-    balance: "",
-    totalSupply: 0,
-    contract: null,
-    KBird: [],
-  };
 
   async loadWeb3() {
     if (window.ethereum) {
@@ -45,7 +36,7 @@ export default class Home extends Component {
 
   async loadBlockchainData() {
     const web3 = window.web3;
-    const acc = web3.eth.getAccounts();
+    const acc = await web3.eth.getAccounts();
 
     // saves the account state
     this.setState({ account: acc[0] });
@@ -68,43 +59,63 @@ export default class Home extends Component {
 
       console.log(`ABI\n`);
       console.log(abi);
+
       console.log(`\nAddress`);
       console.log(address);
+
       console.log(`\nContract`);
       console.log(contract);
 
       console.log("Contract Data");
-      contract.methods
-        .totalSupply()
-        .call()
-        .then((totalSupply) => {
-          // update total supply
-          console.log("Total Supply");
-          this.setState({ totalSupply: totalSupply });
-          console.log(totalSupply);
-        });
+      let contractData = await contract.methods.totalSupply().call();
+      console.log("Total Supply");
+      this.setState({ totalSupply: contractData });
+      console.log(this.state.totalSupply);
+
       // check contracts
       for (let i = 1; i <= this.state.totalSupply; i++) {
-        console.log("a");
-        contract.methods
-          .kryptoBirdz(i - 1)
-          .call()
-          .then((result) => {
-            console.log("--------");
-            console.log(result);
-            this.setState({ KBird: [...this.state.KBird, result] });
-          });
+        const KryptoBird = await contract.methods.kryptoBirdz(i - 1).call();
+        this.setState({ KBird: [...this.state.KBird, KryptoBird] });
+        console.log("KBirds data ");
+        console.log(this.state.KBird);
       }
     }
   }
 
-  // Return
+  // a function that will mint tokens
+  // mintToken = async () => {
+  //   const contract = this.state.contract;
+  //   const account = this.state.account;
+  //   const amount = document.getElementById("amount").value;
+  //   console.log(amount);
+  //   contract.methods
+  //     .mint(account, amount)
+  //     .send({ from: account })
+  //     .then((result) => {
+  //       console.log(result);
+  //     });
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: "123",
+      balance: 15213123,
+      totalSupply: 0,
+      contract: null,
+      KBird: [],
+    };
+  }
+
   render() {
     return (
       <>
         <Header account={this.state.account} />
         <div className="lr-padding-50px">
           <h1>Home Page of NFT Marketplace </h1>
+          <p>Mints: {this.state.totalSupply["_hex"]}</p>
+          <p>Account: {this.state.account}</p>
+          <p>Balance: {this.state.balance}</p>
         </div>
       </>
     );
