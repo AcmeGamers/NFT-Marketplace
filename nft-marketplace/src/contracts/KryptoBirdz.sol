@@ -12,8 +12,7 @@ contract KryptoBird is ERC721Connector {
 
     function mint(string memory _kryptoBird) public {
 
-        require(!_kryptoBirdzExists[_kryptoBird],
-        'Error - kryptoBird already exists');
+        require(!_kryptoBirdzExists[_kryptoBird], 'Error - kryptoBird already exists');
         // this is deprecated - uint _id = KryptoBirdz.push(_kryptoBird);
         kryptoBirdz.push(_kryptoBird);
         uint _id = kryptoBirdz.length - 1;
@@ -25,8 +24,7 @@ contract KryptoBird is ERC721Connector {
 
     }
 
-    constructor() ERC721Connector('KryptoBird','KBIRDZ')
- {}
+    constructor() ERC721Connector('KryptoBird','KBIRDZ') {}
 
 }
 
