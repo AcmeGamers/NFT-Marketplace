@@ -40,6 +40,19 @@ export default class Home extends Component {
     // saves the account state
     this.setState({ account: acc[0] });
 
+    // Shows amount of user
+    let getAmount;
+    await web3.eth.getBalance(this.state.account, function(err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        getAmount = web3.utils.fromWei(result, "ether");
+
+        console.log(getAmount + " ETH");
+      }
+    });
+    this.setState({ balance: parseFloat(getAmount) });
+
     // network id and data
     const networkID = await web3.eth.net.getId(),
       networkData = KryptoBird.networks[networkID];
@@ -85,15 +98,17 @@ export default class Home extends Component {
   }
 
   // a function that will mint tokens
-  mint = async () => {
+  mint = (data) => {
     const contract = this.state.contract;
     const account = this.state.account;
 
     contract.methods
-      .mint(account)
+      .mint(data)
       .send({ from: account })
       .once("Recipt", (error, recipt) => {
         this.setState({ KBird: [...this.state.KBird, KryptoBird] });
+        console.log(error);
+        console.log(recipt);
       })
       .then((result) => {
         console.log("Result V1");
@@ -105,8 +120,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       account: "123",
-      balance: 15213123,
-      totalSupply: 0,
+      balance: 0,
+      totalSupply: {},
       contract: null,
       KBird: [],
     };
@@ -115,12 +130,57 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        <Header account={this.state.account} />
+        <Header account={this.state.balance.toFixed(4) + ` ETH`} />
+
         <div className="lr-padding-50px">
-          <h1>Home Page of NFT Marketplace </h1>
-          <p>Mints: {this.state.totalSupply["_hex"]}</p>
-          <p>Account: {this.state.account}</p>
-          <p>Balance: {this.state.balance}</p>
+          <div>
+            <h1>Home Page of NFT Marketplace </h1>
+            <p>Mints: {this.state.totalSupply._hex}</p>
+            <p>Account: {this.state.account}</p>
+            <p>Balance: {this.state.balance} ETH</p>
+            <div>
+              <p>Purhcases</p>
+              <ul>
+                {this.state.KBird.map((KryptoBird) => (
+                  <li key={this.state.KBird.indexOf(KryptoBird)}>
+                    {KryptoBird}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div>
+            <form
+              className="form column flex-center"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const keybird = this.kryptoBird.value.toString();
+                this.mint(keybird);
+                console.log(keybird);
+              }}
+            >
+              <input
+                type="text"
+                placeholder="File URL"
+                ref={(input) => (this.kryptoBird = input)}
+                style={{
+                  marginTop: "10px",
+                  padding: "10px 20px",
+                  width: "200px",
+                }}
+              />
+              <input
+                type="submit"
+                value="Mint"
+                onClick={this.mint}
+                style={{
+                  marginTop: "10px",
+                  padding: "10px 20px",
+                  width: "245px",
+                }}
+              />
+            </form>
+          </div>
         </div>
       </>
     );
