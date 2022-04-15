@@ -5,18 +5,30 @@ This is one of the projects made while learning about Blockchains and the projec
 
 ## Getting Started
 
+### Requirements
+Before running this project, make sure you have the following things to get started.
+
 ### Git Clone
 
 Before starting the project, you need to either download or clone this project. To clone the project using [Git](https://git-scm.com/downloads), perform the following command in the bash terminal or in any other CLI.
 
 ```bash
-git clone https://github.com/github/training-kit.git
+git clone https://github.com/AcmeGamers/NFT-Marketplace.git
 ```
 
 ### Installing Packages
 
+Now you need to install the depedenecies for the project using the terminal.
+
+```bash
+npm install
+# or
+yarn 
+```
+
+
 ### Running Development Server
-First, run the development server:
+Once the dependencies are installed, you can run the development server using the command:
 
 ```bash
 npm run dev
@@ -24,7 +36,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the results!
 
 ## Features
 Here are some of the features of this NFT Marketplace:
