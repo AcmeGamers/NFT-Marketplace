@@ -5,6 +5,17 @@ This is one of the projects made while learning about Blockchains and the projec
 
 ## Getting Started
 
+### Git Clone
+
+Before starting the project, you need to either download or clone this project. To clone the project using [Git](https://git-scm.com/downloads), perform the following command in the bash terminal or in any other CLI.
+
+```bash
+git clone https://github.com/github/training-kit.git
+```
+
+### Installing Packages
+
+### Running Development Server
 First, run the development server:
 
 ```bash
