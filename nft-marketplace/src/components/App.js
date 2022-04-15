@@ -20,6 +20,7 @@ import {
   MDBModalTitle,
   MDBModalBody,
   MDBModalFooter,
+  MDBInput,
 } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "./Components/app.css";
@@ -35,44 +36,8 @@ export default class Home extends Component {
   async componentDidMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
-    await this.popover();
   }
 
-  async popover() {
-    this.setState({ basicModal: !this.state.basicModal });
-
-    return (
-      <>
-        <MDBBtn onClick={this.toggleShow}>Model</MDBBtn>
-        <MDBModal
-          show={this.basicModal}
-          setShow={this.setBasicModal}
-          tabIndex="-1"
-        >
-          <MDBModalDialog>
-            <MDBModalContent>
-              <MDBModalHeader>
-                <MDBModalTitle>Modal title</MDBModalTitle>
-                <MDBBtn
-                  className="btn-close"
-                  color="none"
-                  onClick={this.toggleShow}
-                ></MDBBtn>
-              </MDBModalHeader>
-              <MDBModalBody>...</MDBModalBody>
-
-              <MDBModalFooter>
-                <MDBBtn color="secondary" onClick={this.toggleShow}>
-                  Close
-                </MDBBtn>
-                <MDBBtn>Save changes</MDBBtn>
-              </MDBModalFooter>
-            </MDBModalContent>
-          </MDBModalDialog>
-        </MDBModal>
-      </>
-    );
-  }
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -169,6 +134,23 @@ export default class Home extends Component {
       });
   };
 
+  // A function that will transfer the token
+  transfer = (data) => {
+    const contract = this.state.contract;
+    const account = this.state.account;
+
+    contract.methods
+      .transfer(data)
+      .send({ from: account })
+      .once("receipt", () => {
+        // find index of element in array
+        // const index = this.state.KBird.findIndex();
+        // this.setState({
+        //   KBird: this.state.KBird.filter((item) => item.id !== data),
+        // });
+      });
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -177,7 +159,7 @@ export default class Home extends Component {
       totalSupply: {},
       contract: null,
       KBird: [],
-      basicModal: false,
+      isPopOver: false,
     };
   }
 
@@ -275,9 +257,13 @@ export default class Home extends Component {
                       <MDBBtn
                         color="warning"
                         style={{ marginLeft: "10px" }}
-                        onClick={this.popover}
+                        onClick={() =>
+                          this.setState({
+                            isPopOver: !this.state.isPopOver,
+                          })
+                        }
                       >
-                        Share
+                        Transfer
                       </MDBBtn>
                     </MDBCardBody>
                   </MDBCard>
@@ -292,23 +278,77 @@ export default class Home extends Component {
             }}
           >
             <h2 style={{ textAlign: "center" }}>Account Details</h2>
-            <div style={{ paddingBottom: "2rem" }}>
-              <p>Mints: {this.state.totalSupply._hex}</p>
-              <p>Account: {this.state.account}</p>
-              <p>Balance: {this.state.balance} ETH</p>
+            <div style={{ paddingBottom: "2rem", margin: "2rem 20px" }}>
+              <p>
+                <strong>Mints:</strong> {this.state.totalSupply._hex}
+              </p>
+              <p>
+                <strong>Account:</strong> {this.state.account}
+              </p>
+              <p>
+                <strong>Balance:</strong> {this.state.balance} ETH
+              </p>
               <div>
-                <p>Purhcases</p>
+                <p>
+                  <strong>Purhcases</strong>
+                </p>
                 <ul>
-                  {this.state.KBird.map((KryptoBird) => (
-                    <li key={this.state.KBird.indexOf(KryptoBird)}>
-                      {KryptoBird.substring(0, 150)}
-                    </li>
+                  {this.state.KBird.map((KryptoBird, index) => (
+                    <li key={index}>{KryptoBird.substring(0, 150)}</li>
                   ))}
                 </ul>
               </div>
             </div>
           </div>
         </div>
+
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            const transferTo = this.transferToNewOwner.value;
+            this.transfer(transferTo);
+            console.log(transferTo);
+          }}
+        >
+          <MDBModal
+            show={this.state.isPopOver}
+            setShow={this.state.isPopOver}
+            tabIndex="-1"
+          >
+            <MDBModalDialog>
+              <MDBModalContent>
+                <MDBModalHeader>
+                  <MDBModalTitle
+                    ref={(input) => (this.transferToNewOwner = input)}
+                  >
+                    Enter New Owner Address
+                  </MDBModalTitle>
+                  <MDBBtn
+                    className="btn-close"
+                    color="none"
+                    onClick={() => {
+                      this.setState({ isPopOver: !this.state.isPopOver });
+                    }}
+                  ></MDBBtn>
+                </MDBModalHeader>
+                <MDBModalBody>
+                  <MDBInput label="Hex Address" id="typeText" type="text" />
+                </MDBModalBody>
+
+                <MDBModalFooter>
+                  <MDBBtn
+                    color="secondary"
+                    onClick={() => {
+                      this.setState({ isPopOver: !this.state.isPopOver });
+                    }}
+                  >
+                    Close
+                  </MDBBtn>
+                </MDBModalFooter>
+              </MDBModalContent>
+            </MDBModalDialog>
+          </MDBModal>
+        </form>
       </>
     );
   }
