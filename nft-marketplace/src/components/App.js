@@ -151,7 +151,7 @@ export default class Home extends Component {
               <ul>
                 {this.state.KBird.map((KryptoBird) => (
                   <li key={this.state.KBird.indexOf(KryptoBird)}>
-                    {KryptoBird}
+                    {KryptoBird.substring(0, 150)}
                   </li>
                 ))}
               </ul>
@@ -188,35 +188,34 @@ export default class Home extends Component {
               />
             </form>
           </div>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
             {this.state.KBird.map((kryptoBird, key) => {
               return (
-                <div>
-                  <div>
-                    <MDBCard
-                      className="token img"
-                      style={{ maxWidth: "22rem" }}
-                    >
-                      <MDBCardImage
-                        src={kryptoBird}
-                        position="top"
-                        height="250rem"
-                        style={{ marginRight: "4px" }}
-                      />
-                      <MDBCardBody>
-                        <MDBCardTitle> KryptoBirdz </MDBCardTitle>
-                        <MDBCardText>
-                          {" "}
-                          The KryptoBirdz are 20 uniquely generated KBirdz from
-                          the cyberpunk cloud galaxy Mystopia! There is only one
-                          of each bird and each bird can be owned by a single
-                          person on the Ethereum blockchain.{" "}
-                        </MDBCardText>
-                        <MDBBtn href={kryptoBird}>Download</MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </div>
-                </div>
+                <MDBCard
+                  className="token img"
+                  style={{ maxWidth: "16rem", margin: "2rem 20px " }}
+                >
+                  <MDBCardImage
+                    src={kryptoBird}
+                    position="top"
+                    height="250rem"
+                    style={{ marginRight: "4px" }}
+                  />
+                  <MDBCardBody>
+                    <MDBCardTitle> Anime </MDBCardTitle>
+                    <MDBCardText>
+                      Some Anime Images taken from network that will invade the
+                      whole blockchain in someone's dream!
+                    </MDBCardText>
+                    <MDBBtn href={kryptoBird}>Download</MDBBtn>
+                  </MDBCardBody>
+                </MDBCard>
               );
             })}
           </div>
