@@ -6,6 +6,14 @@ import Web3 from "web3";
 import KryptoBird from "../abis/KryptoBird.json";
 // import React, { useState, useEffect } from "react";
 // import { Accounts } from "web3-eth-accounts";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
 // ----------
 // Components
@@ -179,6 +187,38 @@ export default class Home extends Component {
                 }}
               />
             </form>
+          </div>
+          <div>
+            {this.state.KBird.map((kryptoBird, key) => {
+              return (
+                <div>
+                  <div>
+                    <MDBCard
+                      className="token img"
+                      style={{ maxWidth: "22rem" }}
+                    >
+                      <MDBCardImage
+                        src={kryptoBird}
+                        position="top"
+                        height="250rem"
+                        style={{ marginRight: "4px" }}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle> KryptoBirdz </MDBCardTitle>
+                        <MDBCardText>
+                          {" "}
+                          The KryptoBirdz are 20 uniquely generated KBirdz from
+                          the cyberpunk cloud galaxy Mystopia! There is only one
+                          of each bird and each bird can be owned by a single
+                          person on the Ethereum blockchain.{" "}
+                        </MDBCardText>
+                        <MDBBtn href={kryptoBird}>Download</MDBBtn>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </>
