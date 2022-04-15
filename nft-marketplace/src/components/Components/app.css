@@ -16,12 +16,12 @@ body {
   display: flex;
 }
 
-.column {
+.f-column {
   display: flex;
   flex-direction: column;
 }
 
-.row {
+.f-row {
   display: flex;
   flex-direction: row;
 }
@@ -57,14 +57,30 @@ body {
   padding: 50px 0;
 }
 
+.sc-full-height {
+  height: 100vh;
+}
+.sc-half-height {
+  height: 50vh;
+}
+
 /* 
 ------
 Custom
 ------
 */
+
+body {
+  background: #5857c9;
+}
+#navbar {
+  background: #fff;
+}
+
 #menu > li {
   padding: 10px;
 }
-#navbar {
-  background: beige;
+
+ul {
+  margin: revert;
 }

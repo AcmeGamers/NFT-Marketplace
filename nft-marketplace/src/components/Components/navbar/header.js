@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Header(props) {
   return (
-    <div className="row flex-center lr-padding-50px" id="navbar">
+    <div className="f-row flex-center lr-padding-50px" id="navbar">
       <div className="width-30">
         <div>Logo</div>
       </div>
       <div className="width-70">
-        <ul id="menu" className="row no-bullets flex-end">
+        <ul id="menu" className="f-row no-bullets flex-end">
           <li>Home</li>
           <li>About</li>
           <li>Contact</li>

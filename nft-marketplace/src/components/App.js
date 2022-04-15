@@ -13,21 +13,66 @@ import {
   MDBCardText,
   MDBCardImage,
   MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
 } from "mdb-react-ui-kit";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "./Components/app.css";
 
 // ----------
 // Components
 // ----------
 import Header from "./Components/navbar/header";
+
 // import Footer from "./Components/navbar/footer";
 
 export default class Home extends Component {
   async componentDidMount() {
     await this.loadWeb3();
-
     await this.loadBlockchainData();
+    await this.popover();
   }
 
+  async popover() {
+    this.setState({ basicModal: !this.state.basicModal });
+
+    return (
+      <>
+        <MDBBtn onClick={this.toggleShow}>Model</MDBBtn>
+        <MDBModal
+          show={this.basicModal}
+          setShow={this.setBasicModal}
+          tabIndex="-1"
+        >
+          <MDBModalDialog>
+            <MDBModalContent>
+              <MDBModalHeader>
+                <MDBModalTitle>Modal title</MDBModalTitle>
+                <MDBBtn
+                  className="btn-close"
+                  color="none"
+                  onClick={this.toggleShow}
+                ></MDBBtn>
+              </MDBModalHeader>
+              <MDBModalBody>...</MDBModalBody>
+
+              <MDBModalFooter>
+                <MDBBtn color="secondary" onClick={this.toggleShow}>
+                  Close
+                </MDBBtn>
+                <MDBBtn>Save changes</MDBBtn>
+              </MDBModalFooter>
+            </MDBModalContent>
+          </MDBModalDialog>
+        </MDBModal>
+      </>
+    );
+  }
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -132,6 +177,7 @@ export default class Home extends Component {
       totalSupply: {},
       contract: null,
       KBird: [],
+      basicModal: false,
     };
   }
 
@@ -140,84 +186,127 @@ export default class Home extends Component {
       <>
         <Header account={this.state.balance.toFixed(4) + ` ETH`} />
 
-        <div className="lr-padding-50px">
-          <div>
-            <h1>Home Page of NFT Marketplace </h1>
-            <p>Mints: {this.state.totalSupply._hex}</p>
-            <p>Account: {this.state.account}</p>
-            <p>Balance: {this.state.balance} ETH</p>
-            <div>
-              <p>Purhcases</p>
-              <ul>
-                {this.state.KBird.map((KryptoBird) => (
-                  <li key={this.state.KBird.indexOf(KryptoBird)}>
-                    {KryptoBird.substring(0, 150)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div>
-            <form
-              className="form column flex-center"
-              onSubmit={(event) => {
-                event.preventDefault();
-                const keybird = this.kryptoBird.value;
-                this.mint(keybird);
-                console.log(keybird);
-              }}
-            >
-              <input
-                type="text"
-                placeholder="File URL"
-                ref={(input) => (this.kryptoBird = input)}
-                style={{
-                  marginTop: "10px",
-                  padding: "10px 20px",
-                  width: "200px",
-                }}
-              />
-              <input
-                type="submit"
-                value="MINT"
-                style={{
-                  marginTop: "10px",
-                  padding: "10px 20px",
-                  width: "245px",
-                }}
-              />
-            </form>
-          </div>
+        <div className="lr-padding-50px" style={{ color: "#fff" }}>
           <div
+            className="f-column sc-half-height"
             style={{
-              display: "flex",
-              flexWrap: "wrap",
+              position: "relative",
+
               justifyContent: "center",
             }}
           >
-            {this.state.KBird.map((kryptoBird, key) => {
-              return (
-                <MDBCard
-                  className="token img"
-                  style={{ maxWidth: "16rem", margin: "2rem 20px " }}
+            <div>
+              <h1 style={{ textAlign: "center" }}>
+                Home Page of NFT Marketplace
+              </h1>
+            </div>
+            <div style={{ position: "relative", top: "5rem" }}>
+              <form
+                className="form f-column flex-center"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  const keybird = this.kryptoBird.value;
+                  this.mint(keybird);
+                  console.log(keybird);
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="File URL"
+                  ref={(input) => (this.kryptoBird = input)}
+                  style={{
+                    marginTop: "10px",
+                    padding: "10px 20px",
+                    width: "45vw",
+                  }}
+                />
+                <MDBBtn
+                  type="submit"
+                  style={{
+                    marginTop: "10px",
+                    padding: "10px 20px",
+                    width: "45vw",
+                    fontSize: "large",
+                  }}
                 >
-                  <MDBCardImage
-                    src={kryptoBird}
-                    position="top"
-                    height="250rem"
-                    style={{ marginRight: "4px" }}
-                  />
-                  <MDBCardBody>
-                    <MDBCardTitle> Anime </MDBCardTitle>
-                    <MDBCardText>
-                      Some Anime Images taken from network that will invade the
-                      whole blockchain in someone's dream!
-                    </MDBCardText>
-                    <MDBBtn href={kryptoBird}>Download</MDBBtn>
-                  </MDBCardBody>
-                </MDBCard>
-              );
-            })}
+                  MINT
+                </MDBBtn>
+              </form>
+            </div>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              top: "7rem",
+            }}
+          >
+            <h2 style={{ textAlign: "center" }}>Mints</h2>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              {this.state.KBird.map((kryptoBird, key) => {
+                return (
+                  <MDBCard
+                    className="token img"
+                    style={{
+                      maxWidth: "20rem",
+                      margin: "2rem 20px",
+                      color: "#000",
+                    }}
+                  >
+                    <MDBCardImage
+                      src={kryptoBird}
+                      position="top"
+                      height="250rem"
+                      style={{ marginRight: "4px", objectFit: "contain" }}
+                    />
+                    <MDBCardBody>
+                      <MDBCardTitle> Anime </MDBCardTitle>
+                      <MDBCardText>
+                        Some Anime Images taken from network that will invade
+                        the whole blockchain in someone's dream!
+                      </MDBCardText>
+                      <MDBBtn href={kryptoBird}>Download</MDBBtn>
+
+                      <MDBBtn
+                        color="warning"
+                        style={{ marginLeft: "10px" }}
+                        onClick={this.popover}
+                      >
+                        Share
+                      </MDBBtn>
+                    </MDBCardBody>
+                  </MDBCard>
+                );
+              })}
+            </div>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              top: "14rem",
+            }}
+          >
+            <h2 style={{ textAlign: "center" }}>Account Details</h2>
+            <div style={{ paddingBottom: "2rem" }}>
+              <p>Mints: {this.state.totalSupply._hex}</p>
+              <p>Account: {this.state.account}</p>
+              <p>Balance: {this.state.balance} ETH</p>
+              <div>
+                <p>Purhcases</p>
+                <ul>
+                  {this.state.KBird.map((KryptoBird) => (
+                    <li key={this.state.KBird.indexOf(KryptoBird)}>
+                      {KryptoBird.substring(0, 150)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </>
