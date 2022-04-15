@@ -136,19 +136,23 @@ export default class Home extends Component {
 
   // A function that will transfer the token
   transfer = (data) => {
-    const contract = this.state.contract;
-    const account = this.state.account;
+    // const contract = this.state.contract;
+    // const account = this.state.account;
+    console.log("Transfer Successful");
 
+    /*
     contract.methods
       .transfer(data)
       .send({ from: account })
       .once("receipt", () => {
+        alert("Transfer Successful");
         // find index of element in array
         // const index = this.state.KBird.findIndex();
         // this.setState({
         //   KBird: this.state.KBird.filter((item) => item.id !== data),
         // });
       });
+    */
   };
 
   constructor(props) {
@@ -343,6 +347,9 @@ export default class Home extends Component {
                     }}
                   >
                     Close
+                  </MDBBtn>
+                  <MDBBtn color="success" onClick={this.transfer}>
+                    Transfer
                   </MDBBtn>
                 </MDBModalFooter>
               </MDBModalContent>
