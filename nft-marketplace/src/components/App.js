@@ -105,7 +105,7 @@ export default class Home extends Component {
     contract.methods
       .mint(data)
       .send({ from: account })
-      .once("Recipt", (error, recipt) => {
+      .once("recipt", (error, recipt) => {
         this.setState({ KBird: [...this.state.KBird, KryptoBird] });
         console.log(error);
         console.log(recipt);
@@ -119,7 +119,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      account: "123",
+      account: "0",
       balance: 0,
       totalSupply: {},
       contract: null,
@@ -154,7 +154,7 @@ export default class Home extends Component {
               className="form column flex-center"
               onSubmit={(event) => {
                 event.preventDefault();
-                const keybird = this.kryptoBird.value.toString();
+                const keybird = this.kryptoBird.value;
                 this.mint(keybird);
                 console.log(keybird);
               }}
@@ -171,8 +171,7 @@ export default class Home extends Component {
               />
               <input
                 type="submit"
-                value="Mint"
-                onClick={this.mint}
+                value="MINT"
                 style={{
                   marginTop: "10px",
                   padding: "10px 20px",
