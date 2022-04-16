@@ -70,12 +70,14 @@ This a list of upcoming features that will be arriving soon in this marketplace.
 
 It uses the following dependencies to make the NFT Marketplace work:
 - ethers 
+- truffle
 - hardhat 
 - - @nomiclabs/hardhat-waffle 
 - - @nomiclabs/hardhat-ethers 
 - web3
 - @metamask/detect-provider
 - mdb-ui-kit
+- react
 - ethereum-waffle 
 - chai 
 - web3modal 
