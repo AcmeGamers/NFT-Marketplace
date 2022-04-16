@@ -45,6 +45,11 @@ npm install
 yarn 
 ```
 
+## Configuration
+
+### Ganache Lookup
+
+### Truffle Configuration
 
 ### Running Development Server
 Once the dependencies are installed, you can run the development server using the command:
