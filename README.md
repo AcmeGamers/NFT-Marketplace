@@ -11,7 +11,7 @@ This is one of the projects made while learning about Blockchains and the projec
 Before running this project, make sure you have the following things to get started.
 - A Computer
 - An Internet Connection
-- IDE 
+- IDE for Editing the Code
 - [Node JS](https://nodejs.org/en/download/)
 
 
