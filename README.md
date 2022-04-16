@@ -11,9 +11,9 @@ This is one of the projects made while learning about Blockchains and the projec
 Before running this project, make sure you have the following things to get started.
 - A Computer
 - An Internet Connection
-- IDE for Editing the Code
+- [IDE](https://www.google.com/search?q=IDE+Examples&ei=YRVaYp65ObyM9u8P4tOpyAI&ved=0ahUKEwje7ZaGsZf3AhU8hv0HHeJpCikQ4dUDCA4&uact=5&oq=IDE+Examples&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAELADEEMyBwgAELADEENKBAhBGABKBAhGGABQfFh8YKYDaAFwAXgAgAEAiAEAkgEAmAEAoAEByAEKwAEB&sclient=gws-wiz) for Editing the Code
 - [Node JS](https://nodejs.org/en/download/)
-
+- [Git](https://git-scm.com/downloads) (Optional)
 
 
 ### Git Clone
