@@ -16,6 +16,7 @@ Before running this project, make sure you have the following things to get star
 - [Git](https://git-scm.com/downloads) (Optional)
 - [Ganache](https://trufflesuite.com/ganache/)
 - [Meta Mask](https://metamask.io/download/)
+- [Truffle](https://trufflesuite.com/docs/truffle/getting-started/installation/) (Global Installation)
 
 
 ### Git Clone
@@ -24,6 +25,14 @@ Before starting the project, you need to either download or clone this project. 
 
 ```bash
 git clone https://github.com/AcmeGamers/NFT-Marketplace.git
+```
+
+### Changing Directory
+
+After cloning and downloading the project, you need to move towards the NFT Marketplace folder which contains the actual marketplace files. To do so, use the following command:
+
+```bash
+cd ./nft-marketplace/
 ```
 
 ### Installing Packages
