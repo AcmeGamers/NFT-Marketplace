@@ -2,6 +2,9 @@
 
 This is one of the projects made while learning about Blockchains and the project mainly focuses on how NFTs can be minted to a marketplace.
 
+## Disclaimer
+
+Before you start using the project, I would like to state that the whole project is a follow up project I made with [Clarian](https://github.com/01Clarian)'s lectures from Udemy Class of [Full NFT Web Developmet Course](https://www.udemy.com/course/the-complete-nft-web-developer-course-zero-to-professional/).
 
 ## Getting Started
 
@@ -89,7 +92,3 @@ It uses the following dependencies to make the NFT Marketplace work:
 - @openzeppelin/contracts 
 - ipfs-http-client 
 - axios
-
-
-# Disclaimer
-In the end, I would like to state that the whole project is a follow up project made with [Clarian](https://github.com/01Clarian)'s lectures from Udemy Class of [Full NFT Web Developmet Course](https://www.udemy.com/course/the-complete-nft-web-developer-course-zero-to-professional/)
