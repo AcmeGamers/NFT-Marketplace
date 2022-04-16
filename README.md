@@ -87,4 +87,4 @@ It uses the following dependencies to make the NFT Marketplace work:
 
 
 # Disclaimer
-In the end, I would like to state that the whole project is a follow up project made with [Clarian](https://github.com/01Clarian)'s lectures from Udemy Class of Full [NFT Web Developmet Course](https://www.udemy.com/course/the-complete-nft-web-developer-course-zero-to-professional/)
+In the end, I would like to state that the whole project is a follow up project made with [Clarian](https://github.com/01Clarian)'s lectures from Udemy Class of [Full NFT Web Developmet Course](https://www.udemy.com/course/the-complete-nft-web-developer-course-zero-to-professional/)
