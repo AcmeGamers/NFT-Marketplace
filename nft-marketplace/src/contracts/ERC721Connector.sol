@@ -10,7 +10,7 @@ contract ERC721Connector is ERC721Metadata, ERC721Enumerable {
     // we want to carry the metadata info over
 
     constructor(string memory name, string memory symbol)  ERC721Metadata(name, symbol) {
-        
+
     }
 
 }
